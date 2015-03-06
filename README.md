@@ -1,1 +1,1 @@
-# think-differently
+# ThinkDifferently.digital
