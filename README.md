@@ -1,1 +1,1 @@
-# think-differnently
+# think-differently
