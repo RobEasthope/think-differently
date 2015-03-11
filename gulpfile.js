@@ -54,15 +54,7 @@ gulp.task('js', function () {
 
 // HTML
 gulp.task('html', gulp.series('css'), function () {
-	var assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
-
-	return gulp.src('source/html/*.html')
-		.pipe(assets)
-		.pipe($.if('*.js', $.uglify()))
-		.pipe($.if('*.css', $.csso()))
-		.pipe(assets.restore())
-		.pipe($.useref())
-		.pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
+	return gulp.src('source/html/**/*.*')
 		.pipe(gulp.dest('./app'))
 		.pipe(plugins.notify("HTML processing complete"));
 });
