@@ -1,0 +1,6 @@
+{
+	"ImageDevPath": "/images",
+	"ImageDeployPath": "###",
+	"SourcePath": "./source",
+	"BuildPath": "./app"
+}
