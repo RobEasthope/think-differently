@@ -7,6 +7,7 @@
     "neat": "~1.7.2",
     "bitters": "~1.0.0",
     "pubnub": "~3.7.8",
-    "impress.js": "~0.5.3"
+    "impress.js": "~0.5.3",
+    "normalize.scss": "~3.0.2+normalize.3.0.2"
   }
 }
