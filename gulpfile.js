@@ -34,7 +34,7 @@ gulp.task('css', function () {
 		]))
 		.pipe($.sourcemaps.write())
 		.pipe(gulp.dest('./app/css'))
-		.pipe(plugins.notify("CSS compile complete"))
+		.pipe($.notify("CSS compile complete"))
 		.pipe(reload({stream: true}));
 });
 
@@ -48,7 +48,7 @@ gulp.task('js', function () {
 		.pipe($.if(!browserSync.active, $.jshint.reporter('fail')))
 		.pipe($.concat('app.js'))
 		.pipe(gulp.dest('./app/js'))
-		.pipe(plugins.notify("JS compile complete"));
+		.pipe($.notify("JS compile complete"));
 });
 
 
@@ -56,7 +56,7 @@ gulp.task('js', function () {
 gulp.task('html', gulp.series('css'), function () {
 	return gulp.src('source/html/**/*.*')
 		.pipe(gulp.dest('./app'))
-		.pipe(plugins.notify("HTML processing complete"));
+		.pipe($.notify("HTML processing complete"));
 });
 
 
@@ -71,7 +71,7 @@ gulp.task('images', function () {
 			svgoPlugins: [{cleanupIDs: false}]
 		})))
 		.pipe(gulp.dest('app/images'))
-		.pipe(plugins.notify("Image processing complete"));
+		.pipe($.notify("Image processing complete"));
 });
 
 
