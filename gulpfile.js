@@ -100,7 +100,7 @@ gulp.task('clean', require('del').bind(null, ['app']));
 
 
 // Localhost server
-gulp.task('localhost', gulp.series('css', 'fonts'), function () {
+gulp.task('localhost', gulp.series('html', 'css', 'js'), function () {
 	browserSync({
 		notify: false,
 		port: 9000,
