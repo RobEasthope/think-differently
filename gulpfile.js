@@ -53,8 +53,8 @@ gulp.task('js', function () {
 
 
 // HTML
-gulp.task('html', gulp.series('css'), function () {
-	return gulp.src('source/html/**/*.*')
+gulp.task('html', function () {
+	return gulp.src('./source/html/*.html')
 		.pipe(gulp.dest('./app'))
 		.pipe($.notify("HTML processing complete"));
 });
