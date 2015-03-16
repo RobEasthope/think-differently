@@ -41,7 +41,7 @@ gulp.task('css', function () {
 
 // JS
 gulp.task('js', function () {
-	return gulp.src('app/js/**/*.js')
+	return gulp.src('./source/js/**/*.js')
 		.pipe(reload({stream: true, once: true}))
 		.pipe($.jshint())
 		.pipe($.jshint.reporter('jshint-stylish'))
