@@ -103,11 +103,13 @@ gulp.task('clean', require('del').bind(null, ['app']));
 gulp.task('localhost', gulp.series('html', 'css', 'js'), function () {
 	browserSync({
 		notify: false,
-		port: 9000,
+		port: 3000,
 		server: {
 			baseDir: ['./app'],
+			directory: true,
+			index: "index.html",
 			routes: {
-				'/bower_components': 'bower_components'
+				'/bower_components': './source/repos'
 			}
 		}
 	});
