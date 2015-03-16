@@ -105,7 +105,7 @@ gulp.task('localhost', gulp.series('html', 'css', 'js'), function () {
 		notify: false,
 		port: 9000,
 		server: {
-			baseDir: ['.tmp', 'app'],
+			baseDir: ['./app'],
 			routes: {
 				'/bower_components': 'bower_components'
 			}
