@@ -2,7 +2,9 @@
   "name": "portfolio",
   "private": true,
   "dependencies": {
-    "bootstrap-sass-official": "~3.3.1",
-    "modernizr": "~2.8.1"
+    "modernizr": "~2.8.1",
+    "bourbon": "~4.2.1",
+    "neat": "~1.7.2",
+    "bitters": "~1.0.0"
   }
 }
