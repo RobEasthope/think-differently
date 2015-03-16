@@ -114,16 +114,16 @@ gulp.task('localhost', gulp.series('html', 'css', 'js'), function () {
 
 	// watch for changes
 	gulp.watch([
-		'app/*.html',
-		'app/css/**/*.css',
-		'app/js/**/*.js',
-		'app/images/**/*'
+		'source/html/*.html',
+		'souce/css/**/*.css',
+		'source/js/**/*.js',
+		'source/images/**/*'
 	]).on('change', reload);
 
 	gulp.watch('source/scss/**/*.scss', ['css']);
 	gulp.watch('source/js/**/*.js', ['js']);
 	gulp.watch('source/fonts/**/*', ['fonts']);
-	gulp.watch('bower.json', ['wiredep', 'fonts']);
+	// gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
 
 
