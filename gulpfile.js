@@ -151,7 +151,14 @@ gulp.task('wiredep', function () {
 
 // BUILD TASKS
 // Build task
-gulp.task('build', gulp.series('js', 'html', 'images', 'fonts', 'extras'), function () {
+gulp.task('build', gulp.series(
+		'css',
+		'js',
+		'html'
+		// 'images'
+		// 'fonts',
+		// 'extras'
+	), function () {
 	return gulp.src('app/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
