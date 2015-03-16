@@ -6,6 +6,7 @@
     "bourbon": "~4.2.1",
     "neat": "~1.7.2",
     "bitters": "~1.0.0",
-    "pubnub": "~3.7.8"
+    "pubnub": "~3.7.8",
+    "impress.js": "~0.5.3"
   }
 }
