@@ -34,7 +34,7 @@ gulp.task('css', function () {
 		.pipe($.sourcemaps.write())
 		.pipe(gulp.dest('./app/css'))
 		.pipe(browserSync.reload({stream:true}))
-		.pipe($.notify("CSS compile complete"))
+		.pipe($.notify("CSS compile complete"));
 });
 
 
@@ -76,25 +76,11 @@ gulp.task('images', function () {
 		.pipe($.notify("Image processing complete"));
 });
 
-
-// Fonts
-// gulp.task('fonts', function () {
-// 	return gulp.src(require('main-bower-files')({
-// 		filter: '**/*.{eot,svg,ttf,woff,woff2}'
-// 	}).concat('app/fonts/**/*'))
-// 		.pipe(gulp.dest('app/fonts'));
-// });
-
-
-// ?
-// gulp.task('extras', function () {
-// 	return gulp.src([
-// 		'app/*.*',
-// 		'!app/*.html'
-// 	], {
-// 		dot: true
-// 	}).pipe(gulp.dest('app'));
-// });
+gulp.task('watch', function() {
+	gulp.watch('source/scss/**/*.scss'.css, 'css');
+	gulp.watch('source/js/**/*.js'.js, 'js');
+	gulp.watch('source/html/**/*.html'.html, 'html');
+});
 
 
 // Clean task
@@ -114,7 +100,7 @@ gulp.task('browser-sync', function () {
 });
 
 // Localhost server
-gulp.task('localhost', gulp.series('html', 'css', 'js', 'browser-sync'), function () {
+gulp.task('localhost', gulp.series('html', 'css', 'js', 'watch', 'browser-sync'), function () {
 // 	browserSync({
 // 		notify: false,
 // 		port: 3000,
@@ -136,12 +122,14 @@ gulp.task('localhost', gulp.series('html', 'css', 'js', 'browser-sync'), functio
 	// 	'source/images/**/*'
 	// ]).on('change', reload);
 
-	gulp.watch('source/scss/**/*.scss'.css, 'css');
-	gulp.watch('source/js/**/*.js'.js, 'js');
-	gulp.watch('source/html/**/*.html'.html, 'html');
+	// gulp.watch('source/scss/**/*.scss'.css, 'css');
+	// gulp.watch('source/js/**/*.js'.js, 'js');
+	// gulp.watch('source/html/**/*.html'.html, 'html');
 	// gulp.watch('source/fonts/**/*', ['fonts']);
 	// gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
+
+
 
 
 // Inject bower components
@@ -171,7 +159,8 @@ gulp.task('wiredep', function () {
 gulp.task('build', gulp.series(
 		'css',
 		'js',
-		'html'
+		'html',
+		'watch'
 		// 'images'
 		// 'fonts',
 		// 'extras'
