@@ -34,8 +34,8 @@ gulp.task('css', function () {
 		]))
 		.pipe($.sourcemaps.write())
 		.pipe(gulp.dest('./app/css'))
+		.pipe(browserSync.reload({stream:true}))
 		.pipe($.notify("CSS compile complete"))
-		.pipe(reload({stream: true}));
 });
 
 
@@ -48,7 +48,9 @@ gulp.task('js', function () {
 		.pipe($.if(!browserSync.active, $.jshint.reporter('fail')))
 		.pipe($.concat('app.js'))
 		.pipe(gulp.dest('./app/js'))
+		.pipe(browserSync.reload({stream:true}))
 		.pipe($.notify("JS compile complete"));
+
 });
 
 
@@ -71,6 +73,7 @@ gulp.task('images', function () {
 			svgoPlugins: [{cleanupIDs: false}]
 		})))
 		.pipe(gulp.dest('app/images'))
+		.pipe(browserSync.reload({stream:true}))
 		.pipe($.notify("Image processing complete"));
 });
 
@@ -99,20 +102,32 @@ gulp.task('images', function () {
 gulp.task('clean', require('del').bind(null, ['app']));
 
 
-// Localhost server
-gulp.task('localhost', gulp.series('html', 'css', 'js'), function () {
-	browserSync({
-		notify: false,
-		port: 3000,
+gulp.task('browser-sync', function () {
+	var files = [
+		'./app/index.html'
+	];
+
+	browserSync.init(files, {
 		server: {
-			baseDir: ['./app'],
-			directory: true,
-			index: "index.html",
-			routes: {
-				'/bower_components': './source/repos'
-			}
+			 baseDir: './app'
 		}
 	});
+});
+
+// Localhost server
+gulp.task('localhost', gulp.series('html', 'css', 'js', 'browser-sync'), function () {
+// 	browserSync({
+// 		notify: false,
+// 		port: 3000,
+// 		server: {
+// 			baseDir: ['./app'],
+// 			directory: true,
+// 			index: "index.html",
+// 			routes: {
+// 				'/bower_components': './source/repos'
+// 			}
+// 		}
+// 	});
 
 	// watch for changes
 	gulp.watch([
