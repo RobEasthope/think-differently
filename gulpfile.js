@@ -6,13 +6,12 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+var awspublish = require('gulp-awspublish');
 var fs = require("fs");
 
 // Load project config file
-var config = require('./gulp-config.json');
-
-// Load AWS S3 config file
-var aws = JSON.parse(fs.readFileSync('./aws-credentials.json'));
+var appConfig = require('./gulp-config.json');
+var aws = require('./aws-credentials.json');
 
 
 // *
@@ -130,16 +129,17 @@ gulp.task('localhost', gulp.series('html', 'css', 'js', 'browser-sync'), functio
 // 	});
 
 	// watch for changes
-	gulp.watch([
-		'source/html/*.html',
-		'souce/css/**/*.css',
-		'source/js/**/*.js',
-		'source/images/**/*'
-	]).on('change', reload);
+	// gulp.watch([
+	// 	'source/html/*.html',
+	// 	'souce/css/**/*.css',
+	// 	'source/js/**/*.js',
+	// 	'source/images/**/*'
+	// ]).on('change', reload);
 
-	gulp.watch('source/scss/**/*.scss', ['css']);
-	gulp.watch('source/js/**/*.js', ['js']);
-	gulp.watch('source/fonts/**/*', ['fonts']);
+	gulp.watch('source/scss/**/*.scss'.css, 'css');
+	gulp.watch('source/js/**/*.js'.js, 'js');
+	gulp.watch('source/html/**/*.html'.html, 'html');
+	// gulp.watch('source/fonts/**/*', ['fonts']);
 	// gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
 
@@ -190,48 +190,34 @@ gulp.task('default', gulp.series('clean'), function () {
 
 
 // PUBLISH TASKS
+// Publish the app to S3
+gulp.task('publish-app', function() {
+	// create a new publisher 
+	var publisher = awspublish.create({
+		"bucket": 'aws.bucket',
+		"region": "aws.region",
+		"key": "aws.key",
+  	"secret": "aws.secret"
+  });
+ 
+	return gulp.src('./app/**/*.*')
+		.pipe(publisher.publish())
+		.pipe(publisher.cache())
+		.pipe($.awspublish.reporter());
+});
+
 // Push images to AWS S3
 gulp.task('publish-images', function() {
 	// create a new publisher 
-	var publisher = awspublish.create({ bucket: '...' });
+	var publisher = awspublish.create({
+		"bucket": 'aws.bucket',
+		"region": "aws.region",
+		"key": "aws.key",
+  	"secret": "aws.secret"
+  });
  
 	return gulp.src('./source/images/**/*.*')
 		.pipe(publisher.publish())
 		.pipe(publisher.cache())
-		.pipe(awspublish.reporter());
-});
-
-
-// Push HTML to AWS S3
-gulp.task('publish-html', function() {
-	// create a new publisher 
-	var publisher = awspublish.create({ bucket: '...' });
- 
-	return gulp.src('./app/*.html')
-		.pipe(publisher.publish())
-		.pipe(publisher.cache())
-		.pipe(awspublish.reporter());
-});
-
-// Push CSS to AWS S3
-gulp.task('publish-css', function() {
-	// create a new publisher 
-	var publisher = awspublish.create({ bucket: '...' });
- 
-	return gulp.src('./app/css/*.css')
-		.pipe(publisher.publish())
-		.pipe(publisher.cache())
-		.pipe(awspublish.reporter());
-});
-
-
-// Push JS to AWS S3
-gulp.task('publish-js', function() {
-	// create a new publisher 
-	var publisher = awspublish.create({ bucket: '...' });
- 
-	return gulp.src('./app/js/*.js')
-		.pipe(publisher.publish())
-		.pipe(publisher.cache())
-		.pipe(awspublish.reporter());
+		.pipe($.awspublish.reporter());
 });
