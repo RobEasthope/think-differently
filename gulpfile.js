@@ -1,7 +1,7 @@
 /*global -$ */
 'use strict';
 
-// CONFIG
+// GULP CONFIG
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
@@ -13,13 +13,19 @@ var fs = require("fs");
 var appConfig = require('./gulp-config.json');
 var aws = require('./aws-credentials.json');
 
-// var watch = require('gulp-watch');
-
 
 // *
 
 
-// COMPILE TASKS
+// TASKS
+// HTML
+gulp.task('html', function () {
+	return gulp.src('./source/html/*.html')
+		.pipe(gulp.dest('./app'))
+		.pipe($.notify("HTML processing complete"));
+});
+
+
 // CSS
 gulp.task('css', function () {
 	return gulp.src('source/scss/app.scss')
@@ -56,14 +62,6 @@ gulp.task('js', function () {
 });
 
 
-// HTML
-gulp.task('html', function () {
-	return gulp.src('./source/html/*.html')
-		.pipe(gulp.dest('./app'))
-		.pipe($.notify("HTML processing complete"));
-});
-
-
 // Images
 gulp.task('images', function () {
 	return gulp.src('app/images/**/*')
@@ -80,11 +78,35 @@ gulp.task('images', function () {
 });
 
 
-
+// PARKED TASKS
 // Clean task
-gulp.task('clean', require('del').bind(null, ['app']));
+// gulp.task('clean', require('del').bind(null, ['app']));
 
 
+// // Inject bower components
+// gulp.task('wiredep', function () {
+// 	var wiredep = require('wiredep').stream;
+
+// 	gulp.src('source/scss/*.scss')
+// 		.pipe(wiredep({
+// 			ignorePath: /^(\.\.\/)+/
+// 		}))
+// 		.pipe(gulp.dest('app/css'));
+
+// 	gulp.src('source/html/**/*.html')
+// 		.pipe(wiredep({
+// 			exclude: ['bootstrap-sass-official'],
+// 			ignorePath: /^(\.\.\/)*\.\./
+// 		}))
+// 		.pipe(gulp.dest('app'));
+// });
+
+
+// *
+
+
+// LOCALHOST
+// Browser-Sync task
 gulp.task('browser-sync', function () {
 	var files = [
 		'./app/index.html'
@@ -97,6 +119,7 @@ gulp.task('browser-sync', function () {
 	});
 });
 
+
 gulp.task('watch', function() {
 	gulp.watch('source/scss/**/*.*', gulp.parallel('css'));
 	gulp.watch('source/js/hacks.js', gulp.parallel('js'));
@@ -104,53 +127,7 @@ gulp.task('watch', function() {
 
 // Localhost server
 gulp.task('localhost', gulp.series('html', 'css', 'js', 'watch', 'browser-sync'), function () {
-// 	browserSync({
-// 		notify: false,
-// 		port: 3000,
-// 		server: {
-// 			baseDir: ['./app'],
-// 			directory: true,
-// 			index: "index.html",
-// 			routes: {
-// 				'/bower_components': './source/repos'
-// 			}
-// 		}
-// 	});
 
-	// watch for changes
-	// gulp.watch([
-	// 	'source/html/*.html',
-	// 	'souce/css/**/*.css',
-	// 	'source/js/**/*.js',
-	// 	'source/images/**/*'
-	// ]).on('change', reload);
-
-	// gulp.watch('source/scss/**/*.scss'.css, 'css');
-	// gulp.watch('source/js/**/*.js'.js, 'js');
-	// gulp.watch('source/html/**/*.html'.html, 'html');
-	// gulp.watch('source/fonts/**/*', ['fonts']);
-	// gulp.watch('bower.json', ['wiredep', 'fonts']);
-});
-
-
-
-
-// Inject bower components
-gulp.task('wiredep', function () {
-	var wiredep = require('wiredep').stream;
-
-	gulp.src('source/scss/*.scss')
-		.pipe(wiredep({
-			ignorePath: /^(\.\.\/)+/
-		}))
-		.pipe(gulp.dest('app/css'));
-
-	gulp.src('source/html/**/*.html')
-		.pipe(wiredep({
-			exclude: ['bootstrap-sass-official'],
-			ignorePath: /^(\.\.\/)*\.\./
-		}))
-		.pipe(gulp.dest('app'));
 });
 
 
@@ -162,13 +139,9 @@ gulp.task('wiredep', function () {
 gulp.task('build', gulp.series(
 		'css',
 		'js',
-		'html',
-		'watch'
-		// 'images'
-		// 'fonts',
-		// 'extras'
+		'html'
 	), function () {
-	return gulp.src('app/**/*').pipe($.size({title: 'build', gzip: true}));
+		.pipe($.notify("App build complete"));
 });
 
 
@@ -193,22 +166,6 @@ gulp.task('publish-app', function() {
   });
  
 	return gulp.src('./app/**/*.*')
-		.pipe(publisher.publish())
-		.pipe(publisher.cache())
-		.pipe($.awspublish.reporter());
-});
-
-// Push images to AWS S3
-gulp.task('publish-images', function() {
-	// create a new publisher 
-	var publisher = awspublish.create({
-		"bucket": 'aws.bucket',
-		"region": "aws.region",
-		"key": "aws.key",
-  	"secret": "aws.secret"
-  });
- 
-	return gulp.src('./source/images/**/*.*')
 		.pipe(publisher.publish())
 		.pipe(publisher.cache())
 		.pipe($.awspublish.reporter());
