@@ -1,7 +1,7 @@
 // Packages
-// @imports "../repos/normalize.scss/normalize";
-// @imports "../repos/bourbon/app/assets/stylesheets/bourbon";
-// @imports "../repos/neat/app/assets/stylesheets/neat";
+@import "../repos/modularized-normalize-scss/normalize";
+@import "../repos/bourbon/app/assets/stylesheets/bourbon";
+@import "../repos/neat/app/assets/stylesheets/neat";
 
 // App code
 @import "hacks";
