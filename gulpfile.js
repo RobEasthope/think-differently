@@ -13,6 +13,8 @@ var fs = require("fs");
 var appConfig = require('./gulp-config.json');
 var aws = require('./aws-credentials.json');
 
+// var watch = require('gulp-watch');
+
 
 // *
 
@@ -20,7 +22,8 @@ var aws = require('./aws-credentials.json');
 // COMPILE TASKS
 // CSS
 gulp.task('css', function () {
-	return gulp.src('./source/scss/app.scss')
+	return gulp.src('source/scss/app.scss')
+		// .pipe($.watch('./source/scss/**/*.scss'))
 		.pipe($.sourcemaps.init())
 		.pipe($.sass({
 			outputStyle: 'nested', // libsass doesn't support expanded yet
@@ -40,7 +43,7 @@ gulp.task('css', function () {
 
 // JS
 gulp.task('js', function () {
-	return gulp.src('./source/js/**/*.js')
+	return gulp.src('source/js/**/*.js')
 		.pipe(reload({stream: true, once: true}))
 		.pipe($.jshint())
 		.pipe($.jshint.reporter('jshint-stylish'))
@@ -76,11 +79,6 @@ gulp.task('images', function () {
 		.pipe($.notify("Image processing complete"));
 });
 
-gulp.task('watch', function() {
-	gulp.watch('source/scss/**/*.scss'.css, 'css');
-	gulp.watch('source/js/**/*.js'.js, 'js');
-	gulp.watch('source/html/**/*.html'.html, 'html');
-});
 
 
 // Clean task
@@ -97,6 +95,11 @@ gulp.task('browser-sync', function () {
 			 baseDir: './app'
 		}
 	});
+});
+
+gulp.task('watch', function() {
+	gulp.watch('source/scss/**/*.*', gulp.parallel('css'));
+	gulp.watch('source/js/hacks.js', gulp.parallel('js'));
 });
 
 // Localhost server
