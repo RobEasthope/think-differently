@@ -21,7 +21,7 @@ var aws = require('./aws-credentials.json');
 // HTML
 gulp.task('html', function () {
 	return gulp.src('./source/html/*.html')
-		.pipe(gulp.dest('./app'))
+		.pipe(gulp.dest('./app'))		
 		.pipe($.notify("HTML processing complete"));
 });
 
@@ -78,34 +78,30 @@ gulp.task('images', function () {
 });
 
 
-// PARKED TASKS
+// *
+
+
+// BUILD TASKS
 // Clean task
-// gulp.task('clean', require('del').bind(null, ['app']));
+gulp.task('clean', require('del').bind(null, ['app']));
 
 
-// // Inject bower components
-// gulp.task('wiredep', function () {
-// 	var wiredep = require('wiredep').stream;
+// Build task
+gulp.task('build', gulp.series('html', 'css', 'js'), function () {
+	
+});
 
-// 	gulp.src('source/scss/*.scss')
-// 		.pipe(wiredep({
-// 			ignorePath: /^(\.\.\/)+/
-// 		}))
-// 		.pipe(gulp.dest('app/css'));
 
-// 	gulp.src('source/html/**/*.html')
-// 		.pipe(wiredep({
-// 			exclude: ['bootstrap-sass-official'],
-// 			ignorePath: /^(\.\.\/)*\.\./
-// 		}))
-// 		.pipe(gulp.dest('app'));
-// });
+// Clean & build
+gulp.task('default', function () {
+	gulp.start('build');
+});
 
 
 // *
 
 
-// LOCALHOST
+// DEVELOPMENT TASKS
 // Browser-Sync task
 gulp.task('browser-sync', function () {
 	var files = [
@@ -120,34 +116,17 @@ gulp.task('browser-sync', function () {
 });
 
 
+// Watch task
 gulp.task('watch', function() {
+	gulp.watch('source/html/**/*.*', gulp.parallel('html'));
 	gulp.watch('source/scss/**/*.*', gulp.parallel('css'));
 	gulp.watch('source/js/hacks.js', gulp.parallel('js'));
 });
 
-// Localhost server
-gulp.task('localhost', gulp.series('html', 'css', 'js', 'watch', 'browser-sync'), function () {
 
-});
-
-
-// *
-
-
-// BUILD TASKS
-// Build task
-gulp.task('build', gulp.series(
-		'css',
-		'js',
-		'html'
-	), function () {
-		.pipe($.notify("App build complete"));
-});
-
-
-// Clean & build
-gulp.task('default', gulp.series('clean'), function () {
-	gulp.start('build');
+// Localhost server & build
+gulp.task('dev', gulp.parallel('build', 'watch', 'browser-sync'), function () {
+	
 });
 
 
@@ -170,3 +149,26 @@ gulp.task('publish-app', function() {
 		.pipe(publisher.cache())
 		.pipe($.awspublish.reporter());
 });
+
+
+// *
+
+
+// PARKED TASKS
+// // Inject bower components
+// gulp.task('wiredep', function () {
+// 	var wiredep = require('wiredep').stream;
+
+// 	gulp.src('source/scss/*.scss')
+// 		.pipe(wiredep({
+// 			ignorePath: /^(\.\.\/)+/
+// 		}))
+// 		.pipe(gulp.dest('app/css'));
+
+// 	gulp.src('source/html/**/*.html')
+// 		.pipe(wiredep({
+// 			exclude: ['bootstrap-sass-official'],
+// 			ignorePath: /^(\.\.\/)*\.\./
+// 		}))
+// 		.pipe(gulp.dest('app'));
+// });
