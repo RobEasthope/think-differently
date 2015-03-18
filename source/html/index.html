@@ -23,24 +23,46 @@
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 		<header>
-			
+			<h1>PubNub &#10084; D3</h1>
+			<h2>D3 Bubble Chart with PubNub Data Stream!</h2>
 		</header>
-
 		<main>
-			<div class="container">
-				<h2>Pick the best model!</h2>
-			</div>
+			<fieldset>
+				<section id="chart"></section>
+				
+				<p>data center:<br><span id="region"></span></p>
+
+				<legend>
+					Select a data center location:<br>
+					<select id="dataCenterPicker">
+						<option value="amsterdam">Amsterdam</option> 
+						<option value="california">California</option>
+						<option value="ireland">Ireland</option>
+						<option value="saopaulo">São Paulo</option>
+						<option value="tokyo">東京 (Tokyo)</option>
+						<option value="virginia">Virginia</option>
+					</select>
+
+					<div data-category="North America" class="noram"></div>
+					<div data-category="Latin America and the Caribbean" class="latam"></div>
+					<div data-category="Europe" class="eu"></div>
+					<div data-category="Africa" class="africa"></div>
+					<div data-category="Asia" class="asia"></div>
+					<div data-category="Oceania" class="oceania"></div>
+					<div data-category="Unclassified" class="other"></div>
+
+					<input type="button" id="toggle" value="Stop me!">
+				</legend>
+			</fieldset>
 		</main>
 
-		<footer>
-			
-		</footer>
+		<footer>So what does this chart indicates? It shows message volume per country from an each PubNub data center.<br>
+		The size of each bubble corresponds with volume. To simplify the tutorial, the country names are not labeled, however, you can take a look at the generated source code in dev console to see abbriviated country codes as class name!</footer>
 
-		<!-- JS -->
-		<!-- Dependencies -->
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js"></script>
-		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-		<script src="http://cdn.pubnub.com/pubnub-3.4.4.js"></script>
+		<a href="https://github.com/pubnub/d3-bubble"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+
+		<script src="//cdn.pubnub.com/pubnub.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>	
 
 		<!-- App code -->
 		<script src="js/app.js"></script>
