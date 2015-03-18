@@ -11,7 +11,6 @@ var fs = require("fs");
 
 // Load project config file
 var appConfig = require('./gulp-config.json');
-var aws = require('./aws-credentials.json');
 
 
 // *
@@ -138,11 +137,11 @@ gulp.task('dev', gulp.parallel('build', 'watch', 'browser-sync'), function () {
 gulp.task('publish-app', function() {
 	// create a new publisher 
 	var publisher = awspublish.create({
-		"bucket": "aws.bucket",
-		"region": "aws.region",
-		"key": "aws.key",
-  		"secret": "aws.secret"
-  });
+		"key": "AKIAIIKJNP62MPJVE2TQ",
+		"secret": "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",
+		"bucket": "think-differently",
+		"region": "eu-central-1"
+  	});
  
 	return gulp.src('./app/**/*.*')
 		.pipe(publisher.publish())
