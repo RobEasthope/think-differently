@@ -9,6 +9,7 @@
     "del": "^1.1.1",
     "gulp": "git://github.com/gulpjs/gulp.git#4.0",
     "gulp-awspublish": "~1.0.6",
+    "gulp-batch": "^1.0.5",
     "gulp-cache": "^0.2.2",
     "gulp-csso": "^0.2.6",
     "gulp-if": "^1.2.1",
