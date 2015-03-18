@@ -1,3 +1,7 @@
+"use strict";
+
+var pubnubCongig = require('./pubnub-credentials.json');
+
 // PubNub voting app demo code
 $(function() {
 	window.data = [{
@@ -18,8 +22,8 @@ $(function() {
 	}];
 	window.pubnub = PUBNUB.init({
 		channel: "survey",
-		publish_key: "pub-c-aa0da548-076b-4c46-bf87-87d2d457368a",
-		subscribe_key: "sub-c-c3f6a9fe-45cb-11e4-a251-02ee2ddab7fe"
+		publish_key: "pubnubConfig.publish_key",
+		subscribe_key: "pubnubConfig.subscribe_key"
 	});
 	pubnub.subscribe({
 		channel: 'survey',
