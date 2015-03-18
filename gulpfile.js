@@ -135,10 +135,10 @@ gulp.task('dev', gulp.parallel('build', 'watch', 'browser-sync'), function () {
 
 // PUBLISH TASKS
 // Publish the app to S3
-gulp.task('publish-app', function() {
+gulp.task('publish-app', gulp.series('build') function() {
 	// create a new publisher 
 	var publisher = awspublish.create({
-		"bucket": 'aws.bucket',
+		"bucket": "aws.bucket",
 		"region": "aws.region",
 		"key": "aws.key",
   	"secret": "aws.secret"
