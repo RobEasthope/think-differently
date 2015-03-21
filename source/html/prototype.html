@@ -39,7 +39,10 @@
 
 			<h1>Results</h1>
 			<p class="results">Awaiting results</p>
-			<button id="getResults" class="get-results" data-vote="efirst">Get results</button>
+			<button id="getResults" class="get-results" >Get results</button>
+			<button id="getResultsArray" class="get-results" >Test Array</button>
+			<p class="efirst-results">Awaiting results</p>
+			<p class="efirst-results">Awaiting results</p>
 		</main>
 
 		<footer>
@@ -52,7 +55,10 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
 		
 		<!-- Testing code -->
+
 		<script type="text/javascript">
+			var results_array = [];
+
 			// Establish PubNub credentials
 			var appVoting = PUBNUB.init({
 				publish_key: 'pub-c-4a52436f-662a-4fe0-8b5c-a171783996a4',
@@ -65,34 +71,144 @@
 				var vote = $(this).data("vote");
 				console.log('Voting for ' + vote);
 				appVoting.publish({
-					channel: vote,
+					channel: "blink-dev",
 					message: "Vote logged for " + vote
 				});
 				console.log('Voted for ' + vote);
 			});
 
 			// Display results
-			eFirstResults = function() {
+			// function getPubNubResults(idea) {
+
+			// 	var targetclass = idea
+			// 	appVoting.history({
+			// 		channel : idea,
+			// 		count : 100,
+			// 		// callback : function(m){results = m}
+			// 		callback: function(payload) {
+			// 			var msgs = payload[0];
+			// 			var start = payload[1];
+			// 			var end = payload[2];
+			// 			// if msgs were retrieved, do something useful with them
+			// 			if (msgs != undefined && msgs.length > 0) {
+			// 				var result = msgs.length
+			// 				$('.results').html('<li>' + result + '</li>');
+			// 				// console.log(msgs);
+			// 			}
+			// 			// if 100 msgs were retrieved, there might be more; call history again
+			// 			if (msgs.length == 100) getAllMessages(start);
+			// 		}
+			// 	});
+			// }
+
+			function getPubNubResults(idea) {
+
+				var targetclass = idea
 				appVoting.history({
-					channel : 'efirst',
+					channel : "blink-dev",
 					count : 100,
-					// callback : function(m){results = m}
-					callback: function(payload) {
-						var msgs = payload[0];
-						var start = payload[1];
-						var end = payload[2];
-						// if msgs were retrieved, do something useful with them
-						if (msgs != undefined && msgs.length > 0) {
-							$('.results').html(msgs.length);
-							// console.log(msgs);
-						}
-						// if 100 msgs were retrieved, there might be more; call history again
-						if (msgs.length == 100) getAllMessages(start);
-					}
+					callback : function(m){
+			    		results = m;
+			    		console.log(results);
+			    		var msgs = m[0];
+			    		console.log(msgs);
+			    	},
+					// callback: function(payload) {
+					// 	var msgs = payload[0];
+					// 	var start = payload[1];
+					// 	var end = payload[2];
+					// 	// if msgs were retrieved, do something useful with them
+					// 	if (msgs != undefined && msgs.length > 0) {
+					// 		var result = msgs.length
+					// 		$('.results').html('<li>' + result + '</li>');
+					// 		// console.log(msgs);
+					// 	}
+					// 	// if 100 msgs were retrieved, there might be more; call history again
+					// 	if (msgs.length == 100) getAllMessages(start);
+					// }
 				});
 			}
+
 			$('#getResults').on('click touchstart', function(){
-				eFirstResults();
+				var getEfirstResults = new getPubNubResults("efirst")
+			})
+
+
+			// *
+
+			
+			// Display results
+			function getPubNubResultsArray() {
+
+				var ideaArray = [
+					"efirst",
+					"ereading-library",
+					"bundling",
+					"subscription",
+					"partnerships",
+					"audio-downloads",
+					"responsive-pricing"
+				];
+
+				function keyValue(idea, votes){
+					this.Idea = key;
+					this.Votes = votes;
+				};
+
+				var arrayLength = ideaArray.length;
+
+				for (var i = 0; i < arrayLength; i++) {
+				    console.log(ideaArray[i]);
+
+				    idea = ideaArray[i];
+				    //Do something
+				    appVoting.history({
+				    	channel : idea,
+				    	reverse: false,
+				    	count : 1000,
+				    	callback : function(m){
+				    		results = m;
+				    		console.log(results)
+				    	},
+				    	// callback: function(payload) {
+				    	// 	var msgs = payload[0];
+				    	// 	var start = payload[1];
+				    	// 	var end = payload[2];
+				    	// 	// if msgs were retrieved, do something useful with them
+				    	// 	if (msgs != undefined && msgs.length > 0) {
+				    	// 		// $('.efirst-results').html(msgs.length);
+				    	// 		console.log(idea);
+				    	// 		results_array[results_array] = msgs.length;
+				    			
+
+				    	// 		var result = msgs.length
+				    	// 		$('.results').append('<li>' + result + '</li>');
+
+				    	// 		return function(){
+				    	// 			results_array;
+				    	// 		}
+				    	// 		// efirstresult = result;
+				    	// 		console.log(idea);
+				    	// 	}
+				    	// 	// if 100 msgs were retrieved, there might be more; call history again
+				    	// 	// if (msgs.length == 1000) getAllMessages(start);
+
+				    	// }
+				    });
+				    		var results_arrayLength = results_array.length;
+
+				    		for (var e = 0; e <= results_arrayLength; e++) {
+				    		    $('.results').append(', ' + results_array[e]);
+				    		   
+				    		}
+				}
+				
+			}
+
+			$('#getResultsArray').on('click touchstart', function(){
+				results_array = [];
+				var getEfirstResults = new getPubNubResultsArray()
+				console.log(results_array);
 			})
 
 		</script>
