@@ -27,7 +27,15 @@
 		</header>
 
 		<main>
-			<h1>Hello world! This is HTML5 Boilerplate.</h1>
+			<h1>Voting prototype</h1>
+
+			<button id="efirst" class="vote-button efirst" data-vote="efirst">eFirst Publishing</button>
+			<button id="ereading-library" class="vote-button ereading-library" data-vote="ereading-library">Bonnier eReading library</button>
+			<button id="bundling" class="vote-button bundling" data-vote="bundling">Content bundling</button>
+			<button id="subscription" class="vote-button subscription" data-vote="subscription">Subscription models</button>
+			<button id="partnerships" class="vote-button partnerships" data-vote="partnerships">Partnership programmes</button>
+			<button id="audio-downloads" class="vote-button audio-downloads" data-vote="audio-downloads">Audio downloads</button>
+			<button id="responsive-pricing" class="vote-button responsive-pricing" data-vote="responsive-pricing">Responsive pricing</button>
 		</main>
 
 		<footer>
@@ -35,15 +43,27 @@
 		</footer>
 
 		<!-- JS -->
+		<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 		<script src="//cdn.pubnub.com/pubnub.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
 		
 		<!-- Instantiate PubNub -->
 		<script type="text/javascript">
 
-		    var PUBNUB_demo = PUBNUB.init({
+		    var appVoting = PUBNUB.init({
 		        publish_key: 'pub-c-4a52436f-662a-4fe0-8b5c-a171783996a4',
 		        subscribe_key: 'sub-c-6e69370c-c426-11e4-85c7-0619f8945a4f'
+		    });
+
+		    $('.vote-button').on('click touchstart', function(){
+		    	var vote = "";
+		    	var vote = $(this).data("vote");
+		    	console.log('Voting for ' + vote);
+		    	appVoting.publish({
+		    	    channel: 'blink-dev',
+		    	    message: {"ballot": + vote}
+		    	});
+		    	console.log('Voted for ' + vote);
 		    });
 
 		</script>
