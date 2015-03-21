@@ -16,7 +16,12 @@ var appConfig = require('./gulp-config.json');
 // *
 
 
-// TASKS
+
+gulp.task('setup', function () {
+	return gulp.src('./source/repos/modernizr/modernizr.js')
+		.pipe(gulp.dest('./app/js'))		
+		.pipe($.notify("Modernizr copied"));
+});
 // HTML
 gulp.task('html', function () {
 	return gulp.src('./source/html/*.html')
