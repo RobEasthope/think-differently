@@ -72,7 +72,7 @@
 				console.log('Voting for ' + vote);
 				appVoting.publish({
 					channel: "blink-dev",
-					message: "Vote logged for " + vote
+					message: vote
 				});
 				console.log('Voted for ' + vote);
 			});
@@ -103,7 +103,6 @@
 
 			function getPubNubResults(idea) {
 
-				var targetclass = idea
 				appVoting.history({
 					channel : "blink-dev",
 					count : 100,
@@ -111,7 +110,19 @@
 			    		results = m;
 			    		console.log(results);
 			    		var msgs = m[0];
-			    		console.log(msgs);
+			    		console.log(msgs.length);
+			    		
+			    		for (var i = 0; i < msgs.length; i++) {
+			    			if (msgs[i] == msgs[i]) {
+			    				if (sessionStorage.i = idea) {
+			    					sessionStorage.i = [idea, Number(localStorage.i[0])]
+			    				} else {
+			    				    sessionStorage.i = i;
+			    				}
+			    			};
+			    			// msgs[i]
+			    		console.log(sessionStorage.i);
+			    		};
 			    	},
 					// callback: function(payload) {
 					// 	var msgs = payload[0];
