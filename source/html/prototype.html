@@ -38,8 +38,13 @@
 			<button id="responsive-pricing" class="vote-button responsive-pricing" data-vote="responsive-pricing">Responsive pricing</button>
 
 			<h1>Results</h1>
-			<p class="results">Awaiting results</p>
-			<button id="getResults" class="get-results">Get results</button>
+			<p>Total results: <span class="results">Awaiting results</span></p>
+			<p>eFirst Publishing 
+				<span class="efirst-results" data-vote="efirst-results">Awaiting results</span>
+			</p>
+			<p>ereading-library 
+				<span class="ereading-library-results" data-vote="ereading-library-results">Awaiting results</span>
+			</p>
 		</main>
 
 		<footer>
@@ -91,7 +96,7 @@
 								console.log("end: " + end);
 
 								// Display results
-								$('.results').html(msgs.length);
+								$('.results-count').html(msgs.length);
 							}
 							// if 100 msgs were retrieved, there might be more; call history again
 							if (msgs.length == 100) getAllMessages(start);
