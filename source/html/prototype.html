@@ -39,7 +39,7 @@
 
 			<h1>Results</h1>
 			<p class="results">Awaiting results</p>
-			<button id="getResults" class="get-results">Get results</button>
+			<button id="getResults" class="get-results" data-vote="efirst">Get results</button>
 		</main>
 
 		<footer>
@@ -65,35 +65,35 @@
 				var vote = $(this).data("vote");
 				console.log('Voting for ' + vote);
 				appVoting.publish({
-					channel: 'blink_testing',
-					message: vote
+					channel: vote,
+					message: "Vote logged for " + vote
 				});
 				console.log('Voted for ' + vote);
 			});
 
 			// Display results
-			$('#getResults').on('click touchstart', function(){
-				results = function() {
-
-					appVoting.history({
-						channel : 'blink_testing',
-						count : 100,
-						// callback : function(m){results = m}
-						callback: function(payload) {
-							var msgs = payload[0];
-							var start = payload[1];
-							var end = payload[2];
-							// if msgs were retrieved, do something useful with them
-							if (msgs != undefined && msgs.length > 0) {
-								$('.results').html(msgs.length);
-								console.log(msgs)
-							}
-							// if 100 msgs were retrieved, there might be more; call history again
-							if (msgs.length == 100) getAllMessages(start);
+			eFirstResults = function() {
+				appVoting.history({
+					channel : 'efirst',
+					count : 100,
+					// callback : function(m){results = m}
+					callback: function(payload) {
+						var msgs = payload[0];
+						var start = payload[1];
+						var end = payload[2];
+						// if msgs were retrieved, do something useful with them
+						if (msgs != undefined && msgs.length > 0) {
+							$('.results').html(msgs.length);
+							// console.log(msgs);
 						}
-					});
-				}
-			});
+						// if 100 msgs were retrieved, there might be more; call history again
+						if (msgs.length == 100) getAllMessages(start);
+					}
+				});
+			}
+			$('#getResults').on('click touchstart', function(){
+				eFirstResults();
+			})
 
 		</script>
 		<script src="js/app.js"></script>
