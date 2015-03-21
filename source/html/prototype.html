@@ -36,6 +36,10 @@
 			<button id="partnerships" class="vote-button partnerships" data-vote="partnerships">Partnership programmes</button>
 			<button id="audio-downloads" class="vote-button audio-downloads" data-vote="audio-downloads">Audio downloads</button>
 			<button id="responsive-pricing" class="vote-button responsive-pricing" data-vote="responsive-pricing">Responsive pricing</button>
+
+			<h1>Results</h1>
+			<p class="results">Awaiting results</p>
+			<button id="getResults" class="get-results">Get results</button>
 		</main>
 
 		<footer>
@@ -47,24 +51,50 @@
 		<script src="//cdn.pubnub.com/pubnub.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
 		
-		<!-- Instantiate PubNub -->
+		<!-- Testing code -->
 		<script type="text/javascript">
+			// Establish PubNub credentials
+			var appVoting = PUBNUB.init({
+				publish_key: 'pub-c-4a52436f-662a-4fe0-8b5c-a171783996a4',
+				subscribe_key: 'sub-c-6e69370c-c426-11e4-85c7-0619f8945a4f'
+			});
 
-		    var appVoting = PUBNUB.init({
-		        publish_key: 'pub-c-4a52436f-662a-4fe0-8b5c-a171783996a4',
-		        subscribe_key: 'sub-c-6e69370c-c426-11e4-85c7-0619f8945a4f'
-		    });
+			// Vote for an idea
+			$('.vote-button').on('click touchstart', function(){
+				var vote = "";
+				var vote = $(this).data("vote");
+				console.log('Voting for ' + vote);
+				appVoting.publish({
+					channel: 'blink_testing',
+					message: vote
+				});
+				console.log('Voted for ' + vote);
+			});
 
-		    $('.vote-button').on('click touchstart', function(){
-		    	var vote = "";
-		    	var vote = $(this).data("vote");
-		    	console.log('Voting for ' + vote);
-		    	appVoting.publish({
-		    	    channel: 'blink_testing',
-		    	    message: vote
-		    	});
-		    	console.log('Voted for ' + vote);
-		    });
+			// Display results
+			$('#getResults').on('click touchstart', function(){
+				results = function() {
+
+					appVoting.history({
+						channel : 'blink_testing',
+						count : 100,
+						// callback : function(m){results = m}
+						callback: function(payload) {
+							var msgs = payload[0];
+							var start = payload[1];
+							var end = payload[2];
+							// if msgs were retrieved, do something useful with them
+							if (msgs != undefined && msgs.length > 0) {
+								$('.results').html(msgs.length);
+							}
+							// if 100 msgs were retrieved, there might be more; call history again
+							if (msgs.length == 100) getAllMessages(start);
+						}
+					});
+				}
+				console.log(results());
+				$('.results').html(results());
+			});
 
 		</script>
 		<script src="js/app.js"></script>
