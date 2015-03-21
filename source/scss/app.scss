@@ -1,8 +1,28 @@
-// Packages
+// REPOS
+// Normalize SCSS
 @import "../repos/modularized-normalize-scss/normalize";
+// Bourbon
 @import "../repos/bourbon/app/assets/stylesheets/bourbon";
+
+// Neat
 @import "../repos/neat/app/assets/stylesheets/neat";
 
-// App code
+
+// *
+
+
+// APP CODE
+// Bitters base
+@import "../bitters-base/variables";
+@import "../bitters-base/grid-settings";
+@import "../bitters-base/typography";
+@import "../bitters-base/lists";
+@import "../bitters-base/tables";
+@import "../bitters-base/buttons";
+@import "../bitters-base/forms";
+
+// Sandbox
 @import "sandbox";
+
+// Hacks
 @import "hacks";
