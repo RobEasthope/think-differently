@@ -1,6 +1,6 @@
 // Default mixins and settings -----------------
 @import "mixins";
-@import "settings";
+@import "default-settings";
 // ---------------------------------------------
 
 
@@ -19,8 +19,8 @@ $mainFont: "adobe-caslon-pro",serif;
 $headingFont: "adobe-caslon-pro",serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
-$headingTextTransform: uppercase;
-$headingFontWeight: 600;
+$headingTextTransform: none;
+$headingFontWeight: 400;
 $linkColor: #2a76dd;
 $linkColorHover: lighten( $linkColor, 15% );
 $selectionBackgroundColor: lighten( $linkColor, 25% );
