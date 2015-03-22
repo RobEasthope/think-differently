@@ -1,0 +1,7 @@
+var data = [
+    {date:"A",close:”58.13”},
+    {date:"B",close:”53.98”},
+    {date:"C",close:”67.00”},
+    {date:"D",close:”89.70”},
+    {date:"E",close:”99.00”}
+];

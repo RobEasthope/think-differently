@@ -71,8 +71,8 @@
 				var vote = $(this).data("vote");
 				console.log('Voting for ' + vote);
 				appVoting.publish({
-					channel: "blink-dev",
-					message: vote
+					channel: "dev",
+					message: {"vote": "voted"}
 				});
 				console.log('Voted for ' + vote);
 			});
@@ -101,29 +101,39 @@
 			// 	});
 			// }
 
+			function increment(msg) { for (var i=0; i<window.data.length; i++) { var el = window.data[i]; if (el.name == msg) { el.vote += 1; } } draw(data); }
+
 			function getPubNubResults(idea) {
 
 				appVoting.history({
 					channel : "blink-dev",
 					count : 100,
-					callback : function(m){
-			    		results = m;
-			    		console.log(results);
-			    		var msgs = m[0];
-			    		console.log(msgs.length);
+					callback: function(msg) {
+						var vote_history = msg[0];
+						for (var i=0; i<vote_history.length; i++) {
+							increment(vote_history[i]);
+						}
+					}
+					// callback : function(m){
+					// 	console.log(m);	
+			  //   		results = m;
+			  //   		console.log("Full message: " + results);
+			  //   		var msgs = m[0];
+			  //   		console.log("Current idea: " + msgs.length);
 			    		
-			    		for (var i = 0; i < msgs.length; i++) {
-			    			if (msgs[i] == msgs[i]) {
-			    				if (sessionStorage.i = idea) {
-			    					sessionStorage.i = [idea, Number(localStorage.i[0])]
-			    				} else {
-			    				    sessionStorage.i = i;
-			    				}
-			    			};
-			    			// msgs[i]
-			    		console.log(sessionStorage.i);
-			    		};
-			    	},
+			  //   		for (var i = 0; i < msgs.length; i++) {
+			  //   			if (msgs[i] == msgs[i]) {
+			  //   				if (sessionStorage.i = idea) {
+			  //   					sessionStorage.i = [idea, Number(localStorage.i[0])]
+			  //   					return i
+			  //   				} else {
+			  //   				    sessionStorage.i = i;
+			  //   				}
+			  //   			};
+			  //   			// msgs[i]
+			  //   		console.log("Current idea: " + sessionStorage.i);
+			  //   		};
+			  //   	},
 					// callback: function(payload) {
 					// 	var msgs = payload[0];
 					// 	var start = payload[1];
@@ -148,7 +158,7 @@
 			// *
 
 			
-			// Display results
+			// Display results array
 			function getPubNubResultsArray() {
 
 				var ideaArray = [
@@ -178,9 +188,15 @@
 				    	reverse: false,
 				    	count : 1000,
 				    	callback : function(m){
-				    		results = m;
-				    		console.log(results)
+				    		result = m;
+				    		console.log(result);
+				    		var results_test = []
+				    		result.push(results.length);
+				    		console.log(results);
 				    	},
+
+				    	// console.log(results);
+
 				    	// callback: function(payload) {
 				    	// 	var msgs = payload[0];
 				    	// 	var start = payload[1];
@@ -206,12 +222,14 @@
 
 				    	// }
 				    });
-				    		var results_arrayLength = results_array.length;
 
-				    		for (var e = 0; e <= results_arrayLength; e++) {
-				    		    $('.results').append(', ' + results_array[e]);
-				    		   
-				    		}
+					// Attempt to eappend results
+					// var results_arrayLength = results_array.length;
+
+					// for (var e = 0; e <= results_arrayLength; e++) {
+					//     $('.results').append(', ' + results_array[e]);
+					   
+					// }
 				}
 				
 			}
