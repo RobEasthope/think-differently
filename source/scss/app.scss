@@ -5,7 +5,28 @@
 @import "../repos/bourbon/app/assets/stylesheets/bourbon";
 
 // Neat
-@import "../repos/neat/app/assets/stylesheets/neat";
+@import "neat/neat";
+// @import "neat-helpers";
+
+// // Grid
+// @import "neat/grid/private";
+// @import "neat/grid/box-sizing";
+// @import "neat/grid/omega";
+// @import "neat/grid/outer-container";
+// @import "neat/grid/span-columns";
+// @import "neat/grid/row";
+// @import "neat/grid/shift";
+// @import "neat/grid/pad";
+// @import "neat/grid/fill-parent";
+// @import "grid/media";
+// @import "grid/to-deprecate";
+// @import "grid/visual-grid";
+// @import "grid/display-context";
+// @import "grid/direction-context";
+
+
+// Reveal.js
+@import "../repos/reveal.js/css/reveal";
 
 
 // *
@@ -13,13 +34,13 @@
 
 // APP CODE
 // Bitters base
-@import "../bitters-base/variables";
-@import "../bitters-base/grid-settings";
-@import "../bitters-base/typography";
-@import "../bitters-base/lists";
-@import "../bitters-base/tables";
-@import "../bitters-base/buttons";
-@import "../bitters-base/forms";
+@import "bitters-base/_variables";
+@import "bitters-base/grid-settings";
+@import "bitters-base/typography";
+@import "bitters-base/lists";
+@import "bitters-base/tables";
+@import "bitters-base/buttons";
+@import "bitters-base/forms";
 
 // Sandbox
 @import "sandbox";
