@@ -4,6 +4,7 @@
   "dependencies": {
     "modernizr": "~2.8.1",
     "bourbon": "~4.2.1",
+    "colors": "~2.2.0",
     "neat": "~1.7.2",
     "bitters": "~1.0.0",
     "pubnub": "~3.7.8",
