@@ -152,7 +152,7 @@ gulp.task('publish-app', function() {
 	var publisher = awspublish.create({
 		"key": "AKIAIIKJNP62MPJVE2TQ",
 		"secret": "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",
-		"bucket": "think-differently",
+		"bucket": "thinkdifferently.digital",
 		"region": "eu-central-1"
   	});
  
