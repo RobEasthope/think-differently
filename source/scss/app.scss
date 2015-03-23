@@ -40,13 +40,13 @@
 
 // APP CODE
 // Bitters base
-@import "bitters-base/_variables";
-@import "bitters-base/grid-settings";
-@import "bitters-base/typography";
-@import "bitters-base/lists";
-@import "bitters-base/tables";
-@import "bitters-base/buttons";
-@import "bitters-base/forms";
+@import "base/_variables";
+@import "base/grid-settings";
+@import "base/typography";
+@import "base/lists";
+@import "base/tables";
+@import "base/buttons";
+@import "base/forms";
 
 // Reveal presentation
 @import "reveal/app-presentation";
