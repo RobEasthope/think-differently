@@ -21,7 +21,12 @@ gulp.task('setup', function () {
 	return gulp.src('./source/repos/modernizr/modernizr.js')
 		.pipe(gulp.dest('./app/js'))		
 		.pipe($.notify("Modernizr copied"));
+
+	return gulp.src('./source/fonts/*')
+		.pipe(gulp.dest('./app/fonts'))		
+		.pipe($.notify("Fonts copied"));
 });
+
 // HTML
 gulp.task('html', function () {
 	return gulp.src('./source/html/*.html')
