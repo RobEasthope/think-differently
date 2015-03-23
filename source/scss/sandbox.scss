@@ -11,8 +11,13 @@
 		color: white;
 	}
 
+	h2 {
+		margin-bottom: 10px;
+	}
+
 	h3 {
 		text-align: left;
+		font-style: normal;
 	}
 
 	.idea-icon {
@@ -25,5 +30,17 @@
 		border: none;
 		box-shadow: none;
 		text-align: center;
+	}
+
+	.heading-ornament {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 0px;
+
+		width: 7em;
+
+		border: none;
+		box-shadow: none;
 	}
 }
