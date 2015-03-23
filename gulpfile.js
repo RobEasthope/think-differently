@@ -21,7 +21,9 @@ gulp.task('setup', function () {
 	return gulp.src('./source/repos/modernizr/modernizr.js')
 		.pipe(gulp.dest('./app/js'))		
 		.pipe($.notify("Modernizr copied"));
+});
 
+gulp.task('fonts', function () {
 	return gulp.src('./source/fonts/*')
 		.pipe(gulp.dest('./app/fonts'))		
 		.pipe($.notify("Fonts copied"));
@@ -73,7 +75,7 @@ gulp.task('js', function () {
 
 // Images
 gulp.task('images', function () {
-	return gulp.src('app/images/**/*')
+	return gulp.src('source/images/**/*')
 		.pipe($.cache($.imagemin({
 			progressive: true,
 			interlaced: true,
@@ -96,7 +98,7 @@ gulp.task('clean', require('del').bind(null, ['app']));
 
 
 // Build task
-gulp.task('build', gulp.series('html', 'css', 'js'), function () {
+gulp.task('build', gulp.series('html', 'css', 'js', 'images'), function () {
 	
 });
 
@@ -129,7 +131,8 @@ gulp.task('browser-sync', function () {
 gulp.task('watch', function() {
 	gulp.watch('source/html/**/*.*', gulp.parallel('html'));
 	gulp.watch('source/scss/**/*.*', gulp.parallel('css'));
-	gulp.watch('source/js/hacks.js', gulp.parallel('js'));
+	gulp.watch('source/js/**/*', gulp.parallel('js'));
+	gulp.watch('source/images/**/*.*', gulp.parallel('images'));
 });
 
 
