@@ -1,17 +1,24 @@
 .reveal {
+	.dragons-den-wrap {
+		border: 0.1em solid white;
+		background-color: rgba(0,0,0,0.6);
+	}
+
 	.dragons-den-type {
 		font-family: "masonregular", "adobe-caslon-pro",serif;
+		font-size: 2.1em;
 		font-style: normal;
 		color: white;
 	}
 
 	.dragons-den-url {
-		font-family: sans-serif;
+		font-family: "franklin-gothic-urw", sans-serif;
 		font-style: normal;
+		font-weight: 300;
 		color: white;
 	}
 
-	h2 {
+	.slide-title {
 		margin-bottom: 10px;
 	}
 
