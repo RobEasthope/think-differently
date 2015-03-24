@@ -73,8 +73,8 @@ $url_2: url(//ssl.gstatic.com/docs/forms/forms_logo_small_dark_2x.png);
 
 
 body {
-	background-color: $color_athens_gray_approx;
-	background-image: $url_0;
+	// background-color: $color_athens_gray_approx;
+	// background-image: $url_0;
 	background-repeat: repeat;
 	background-position: left top;
 	font-family: $font_0;
@@ -83,6 +83,8 @@ body {
 	font-size: 1.080rem;
 	font-style: normal;
 }
+
+
 .ss-form-container {
 	background-color: $white;
 	border-color: $color_quill_gray_approx;
