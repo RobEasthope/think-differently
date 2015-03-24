@@ -44,3 +44,7 @@
 		width: 7em;
 	}
 }
+
+.voting {
+	@include outer-container;
+}
