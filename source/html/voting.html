@@ -1,0 +1,245 @@
+<!doctype html>
+<html class="no-js" lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+		<meta name="description" content="Think Differently">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<!-- Place favicon.ico in the root directory -->
+
+		<!-- Typekit -->
+		<script src="//use.typekit.net/fxb6ilp.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
+		
+		<!-- CSS -->
+		<!-- <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/reveal.js/3.0.0/css/reveal.css"> -->
+		<!-- <link rel="stylesheet" href="http://cdn.bootcss.com/reveal.js/3.0.0/css/theme/white.css"> -->
+		<link rel="stylesheet" href="css/app.css">
+
+		<!-- Modernizer call -->
+		<script src="js/modernizr.js"></script>
+	</head>
+
+	<body>
+		<!-- Browser warning -->
+		<!--[if lt IE 8]>
+			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+		<header>
+			
+		</header>
+
+		<main class="voting">
+			<div class="voting-form">
+			<link href="/static/forms/client/css/656671699-formview_embedded_st_ltr.css" type="text/css" rel="stylesheet">
+
+			<!-- Form JS -->
+			<script type="text/javascript">
+				/**
+				* @license
+				*! H5F
+				* https://github.com/ryanseddon/H5F/
+				* Copyright (c) Ryan Seddon | Licensed MIT
+				*/
+				
+				(function(e,t){"function"==typeof define&&define.amd?define(t):e.H5F=t()})(this,function(){var e,t,a,i,n,r,s,l,u,o,c,d,v,f,p,m,h,g,b,y,w,C,N,A,E,$,k=document,x=k.createElement("input"),q=/^[a-zA-Z0-9.!#$%&'*+-\/=?\^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,M=/[a-z][\-\.+a-z]*:\/\//i,L=/^(input|select|textarea)$/i;return r=function(e,t){var a=!e.nodeType||!1,i={validClass:"valid",invalidClass:"error",requiredClass:"required",placeholderClass:"placeholder"};if("object"==typeof t)for(var r in i)t[r]===void 0&&(t[r]=i[r]);if(n=t||i,a)for(var l=0,u=e.length;u>l;l++)s(e[l]);else s(e)},s=function(a){var i,n=a.elements,r=n.length,s=!!a.attributes.novalidate;if(b(a,"invalid",u,!0),b(a,"blur",u,!0),b(a,"input",u,!0),b(a,"keyup",u,!0),b(a,"focus",u,!0),b(a,"change",u,!0),b(a,"click",o,!0),b(a,"submit",function(i){e=!0,t||s||a.checkValidity()||w(i)},!1),!v())for(a.checkValidity=function(){return c(a)};r--;)i=!!n[r].attributes.required,"fieldset"!==n[r].nodeName.toLowerCase()&&l(n[r])},l=function(e){var t=e,a=g(t),n={type:t.getAttribute("type"),pattern:t.getAttribute("pattern"),placeholder:t.getAttribute("placeholder")},r=/^(email|url)$/i,s=/^(input|keyup)$/i,l=r.test(n.type)?n.type:n.pattern?n.pattern:!1,u=f(t,l),o=m(t,"step"),v=m(t,"min"),h=m(t,"max"),b=!(""===t.validationMessage||void 0===t.validationMessage);t.checkValidity=function(){return c.call(this,t)},t.setCustomValidity=function(e){d.call(t,e)},t.validity={valueMissing:a,patternMismatch:u,rangeUnderflow:v,rangeOverflow:h,stepMismatch:o,customError:b,valid:!(a||u||o||v||h||b)},n.placeholder&&!s.test(i)&&p(t)},u=function(e){var t=C(e)||e,a=/^(input|keyup|focusin|focus|change)$/i,r=/^(submit|image|button|reset)$/i,s=/^(checkbox|radio)$/i,o=!0;!L.test(t.nodeName)||r.test(t.type)||r.test(t.nodeName)||(i=e.type,v()||l(t),t.validity.valid&&(""!==t.value||s.test(t.type))||t.value!==t.getAttribute("placeholder")&&t.validity.valid?(A(t,[n.invalidClass,n.requiredClass]),N(t,n.validClass)):a.test(i)?t.validity.valueMissing&&A(t,[n.requiredClass,n.invalidClass,n.validClass]):t.validity.valueMissing?(A(t,[n.invalidClass,n.validClass]),N(t,n.requiredClass)):t.validity.valid||(A(t,[n.validClass,n.requiredClass]),N(t,n.invalidClass)),"input"===i&&o&&(y(t.form,"keyup",u,!0),o=!1))},c=function(t){var a,i,n,r,s=!1;if("form"===t.nodeName.toLowerCase()){a=t.elements;for(var l=0,o=a.length;o>l;l++)i=a[l],n=!!i.attributes.required,r=!!i.attributes.pattern,"fieldset"!==i.nodeName.toLowerCase()&&(n||r&&n)&&(u(i),i.validity.valid||s||(e&&i.focus(),s=!0));return!s}return u(t),t.validity.valid},d=function(e){var t=this;t.validationMessage=e},o=function(e){var a=C(e);a.attributes.formnovalidate&&"submit"===a.type&&(t=!0)},v=function(){return E(x,"validity")&&E(x,"checkValidity")},f=function(e,t){if("email"===t)return!q.test(e.value);if("url"===t)return!M.test(e.value);if(t){var i=e.getAttribute("placeholder"),n=e.value;return a=RegExp("^(?:"+t+")$"),n===i?!1:""===n?!1:!a.test(e.value)}return!1},p=function(e){var t={placeholder:e.getAttribute("placeholder")},a=/^(focus|focusin|submit)$/i,r=/^(input|textarea)$/i,s=/^password$/i,l=!!("placeholder"in x);l||!r.test(e.nodeName)||s.test(e.type)||(""!==e.value||a.test(i)?e.value===t.placeholder&&a.test(i)&&(e.value="",A(e,n.placeholderClass)):(e.value=t.placeholder,b(e.form,"submit",function(){i="submit",p(e)},!0),N(e,n.placeholderClass)))},m=function(e,t){var a=parseInt(e.getAttribute("min"),10)||0,i=parseInt(e.getAttribute("max"),10)||!1,n=parseInt(e.getAttribute("step"),10)||1,r=parseInt(e.value,10),s=(r-a)%n;return g(e)||isNaN(r)?"number"===e.getAttribute("type")?!0:!1:"step"===t?e.getAttribute("step")?0!==s:!1:"min"===t?e.getAttribute("min")?a>r:!1:"max"===t?e.getAttribute("max")?r>i:!1:void 0},h=function(e){var t=!!e.attributes.required;return t?g(e):!1},g=function(e){var t=e.getAttribute("placeholder"),a=/^(checkbox|radio)$/i,i=!!e.attributes.required;return!(!i||""!==e.value&&e.value!==t&&(!a.test(e.type)||$(e)))},b=function(e,t,a,i){E(window,"addEventListener")?e.addEventListener(t,a,i):E(window,"attachEvent")&&window.event!==void 0&&("blur"===t?t="focusout":"focus"===t&&(t="focusin"),e.attachEvent("on"+t,a))},y=function(e,t,a,i){E(window,"removeEventListener")?e.removeEventListener(t,a,i):E(window,"detachEvent")&&window.event!==void 0&&e.detachEvent("on"+t,a)},w=function(e){e=e||window.event,e.stopPropagation&&e.preventDefault?(e.stopPropagation(),e.preventDefault()):(e.cancelBubble=!0,e.returnValue=!1)},C=function(e){return e=e||window.event,e.target||e.srcElement},N=function(e,t){var a;e.className?(a=RegExp("(^|\\s)"+t+"(\\s|$)"),a.test(e.className)||(e.className+=" "+t)):e.className=t},A=function(e,t){var a,i,n="object"==typeof t?t.length:1,r=n;if(e.className)if(e.className===t)e.className="";else for(;n--;)a=RegExp("(^|\\s)"+(r>1?t[n]:t)+"(\\s|$)"),i=e.className.match(a),i&&3===i.length&&(e.className=e.className.replace(a,i[1]&&i[2]?" ":""))},E=function(e,t){var a=typeof e[t],i=RegExp("^function|object$","i");return!!(i.test(a)&&e[t]||"unknown"===a)},$=function(e){for(var t=document.getElementsByName(e.name),a=0;t.length>a;a++)if(t[a].checked)return!0;return!1},{setup:r}});
+				
+			</script>
+			<div class="ss-base-body" dir="ltr" marginwidth="0" marginheight="0">
+				<div class="ss-form-container">
+					<div class="ss-header-image-container">
+						<div class="ss-header-image-image">
+							<div class="ss-header-image-sizer"></div>
+						</div>
+					</div>
+					<div class="ss-top-of-page">
+						<div class="ss-form-heading">
+							<h1 class="ss-form-title" dir="ltr">Think Differently</h1>
+						</div>
+					</div>
+					<div class="ss-form">
+						<form action="https://docs.google.com/forms/d/1MjOziVbO70cxS4PEgl6_zOitavk3-xP53Rrm3gWcpAU/formResponse?embedded=true" method="POST" id="ss-form" target="_self" onsubmit="">
+							<ol role="list" class="ss-question-list" style="padding-left: 0">
+								<div class="ss-form-question errorbox-good" role="listitem">
+									<div dir="ltr" class="ss-item  ss-checkbox">
+										<div class="ss-form-entry">
+											<label class="ss-q-item-label" for="entry_859700524">
+												<div class="ss-q-title">eFirst Publishing
+												</div>
+												<div class="ss-q-help ss-secondary-text" dir="ltr"></div>
+											</label>
+											<ul class="ss-choices" role="group" aria-label="eFirst Publishing  ">
+												<li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.1472707308" value="1" id="group_1472707308_1" role="checkbox" class="ss-q-checkbox"></span>
+													<span class="ss-choice-label">1</span>
+													</label>
+												</li>
+											</ul>
+											<div class="error-message" id="859700524_errorMessage"></div>
+											<div class="required-message">This is a required question</div>
+										</div>
+									</div>
+								</div>
+								<div class="ss-form-question errorbox-good" role="listitem">
+									<div dir="ltr" class="ss-item  ss-checkbox">
+										<div class="ss-form-entry">
+											<label class="ss-q-item-label" for="entry_1977746952">
+												<div class="ss-q-title">Bonnier eReading Library
+												</div>
+												<div class="ss-q-help ss-secondary-text" dir="ltr"></div>
+											</label>
+											<ul class="ss-choices" role="group" aria-label="Bonnier eReading Library  ">
+												<li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.269039135" value="1" id="group_269039135_1" role="checkbox" class="ss-q-checkbox"></span>
+													<span class="ss-choice-label">1</span>
+													</label>
+												</li>
+											</ul>
+											<div class="error-message" id="1977746952_errorMessage"></div>
+											<div class="required-message">This is a required question</div>
+										</div>
+									</div>
+								</div>
+								<div class="ss-form-question errorbox-good" role="listitem">
+									<div dir="ltr" class="ss-item  ss-checkbox">
+										<div class="ss-form-entry">
+											<label class="ss-q-item-label" for="entry_618919658">
+												<div class="ss-q-title">Content Bundling
+												</div>
+												<div class="ss-q-help ss-secondary-text" dir="ltr"></div>
+											</label>
+											<ul class="ss-choices" role="group" aria-label="Content Bundling  ">
+												<li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.705306171" value="1" id="group_705306171_1" role="checkbox" class="ss-q-checkbox"></span>
+													<span class="ss-choice-label">1</span>
+													</label>
+												</li>
+											</ul>
+											<div class="error-message" id="618919658_errorMessage"></div>
+											<div class="required-message">This is a required question</div>
+										</div>
+									</div>
+								</div>
+								<div class="ss-form-question errorbox-good" role="listitem">
+									<div dir="ltr" class="ss-item  ss-checkbox">
+										<div class="ss-form-entry">
+											<label class="ss-q-item-label" for="entry_2119342454">
+												<div class="ss-q-title">Subscription models
+												</div>
+												<div class="ss-q-help ss-secondary-text" dir="ltr"></div>
+											</label>
+											<ul class="ss-choices" role="group" aria-label="Subscription models  ">
+												<li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.1808485660" value="1" id="group_1808485660_1" role="checkbox" class="ss-q-checkbox"></span>
+													<span class="ss-choice-label">1</span>
+													</label>
+												</li>
+											</ul>
+											<div class="error-message" id="2119342454_errorMessage"></div>
+											<div class="required-message">This is a required question</div>
+										</div>
+									</div>
+								</div>
+								<div class="ss-form-question errorbox-good" role="listitem">
+									<div dir="ltr" class="ss-item  ss-checkbox">
+										<div class="ss-form-entry">
+											<label class="ss-q-item-label" for="entry_253925211">
+												<div class="ss-q-title">Partnership programmes
+												</div>
+												<div class="ss-q-help ss-secondary-text" dir="ltr"></div>
+											</label>
+											<ul class="ss-choices" role="group" aria-label="Partnership programmes  ">
+												<li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.93690939" value="1" id="group_93690939_1" role="checkbox" class="ss-q-checkbox"></span>
+													<span class="ss-choice-label">1</span>
+													</label>
+												</li>
+											</ul>
+											<div class="error-message" id="253925211_errorMessage"></div>
+											<div class="required-message">This is a required question</div>
+										</div>
+									</div>
+								</div>
+								<div class="ss-form-question errorbox-good" role="listitem">
+									<div dir="ltr" class="ss-item  ss-checkbox">
+										<div class="ss-form-entry">
+											<label class="ss-q-item-label" for="entry_1017924747">
+												<div class="ss-q-title">Audio downloads
+												</div>
+												<div class="ss-q-help ss-secondary-text" dir="ltr"></div>
+											</label>
+											<ul class="ss-choices" role="group" aria-label="Audio downloads  ">
+												<li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.711451904" value="1" id="group_711451904_1" role="checkbox" class="ss-q-checkbox"></span>
+													<span class="ss-choice-label">1</span>
+													</label>
+												</li>
+											</ul>
+											<div class="error-message" id="1017924747_errorMessage"></div>
+											<div class="required-message">This is a required question</div>
+										</div>
+									</div>
+								</div>
+								<div class="ss-form-question errorbox-good" role="listitem">
+									<div dir="ltr" class="ss-item  ss-checkbox">
+										<div class="ss-form-entry">
+											<label class="ss-q-item-label" for="entry_578660637">
+												<div class="ss-q-title">Responsive pricing
+												</div>
+												<div class="ss-q-help ss-secondary-text" dir="ltr"></div>
+											</label>
+											<ul class="ss-choices" role="group" aria-label="Responsive pricing  ">
+												<li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.962215890" value="1" id="group_962215890_1" role="checkbox" class="ss-q-checkbox"></span>
+													<span class="ss-choice-label">1</span>
+													</label>
+												</li>
+											</ul>
+											<div class="error-message" id="578660637_errorMessage"></div>
+											<div class="required-message">This is a required question</div>
+										</div>
+									</div>
+								</div>
+								<input type="hidden" name="draftResponse" value="[,,&quot;7285215775206487176&quot;]
+									">
+								<input type="hidden" name="pageHistory" value="0">
+								<input type="hidden" name="fbzx" value="7285215775206487176">
+								<div class="ss-item ss-navigate">
+									<table id="navigation-table">
+										<tbody>
+											<tr>
+												<td class="ss-form-entry goog-inline-block" id="navigation-buttons" dir="ltr">
+													<input type="submit" name="submit" value="Submit" id="ss-submit" class="jfk-button jfk-button-action ">
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</ol>
+						</form>
+					</div>
+				</div>
+				<script type="text/javascript" src="/static/forms/client/js/2628030999-formviewer_prd.js"></script>
+				<script type="text/javascript">H5F.setup(document.getElementById('ss-form'));
+					_initFormViewer("[100,,[]\n]\n", true);
+				</script></body></html>
+			</div>
+		</main>
+
+		<footer>
+			
+		</footer>
+
+		<!-- JS -->
+	
+		
+		<script src="js/app.js"></script>
+
+		<!-- Google Analytics -->
+		<script>
+			// (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			// (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			// m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			// })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			// ga('create', 'UA-60839907-1', 'auto');
+			// ga('send', 'pageview');
+		</script>
+	</body>
+</html>
