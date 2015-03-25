@@ -75,7 +75,7 @@ section.has-dark-background {
         margin-left: auto;
         margin-right: auto;
 
-        height: 3em;
+        height: 2.5em;
     }
 
     .heading-ornament {
@@ -99,8 +99,12 @@ section.has-dark-background {
 
     	.timeline-date {
     		display: inline-block;
-    		width: 13%;
+    		width: 15%;
+    		vertical-align: top;
     	}
-    	.timeline-event {}
+    	.timeline-event {
+    		display: inline-block;
+    		width: 83%;
+    	}
     }
 }
