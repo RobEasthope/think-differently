@@ -49,7 +49,10 @@
 @import "base/forms";
 
 // Reveal presentation
-@import "reveal/app-presentation";
+@import "app/presentation";
+
+// Voting page
+@import "app/voting";
 
 // Sandbox
 @import "sandbox";
