@@ -61,7 +61,13 @@
 						</div>
 					</div>
 					<div class="ss-form">
-						<form action="https://docs.google.com/forms/d/1MjOziVbO70cxS4PEgl6_zOitavk3-xP53Rrm3gWcpAU/formResponse?embedded=true" method="POST" id="ss-form" target="_self" onsubmit="">
+						<script type="text/javascript">var submitted=false;</script>
+						<iframe name="hidden_iframe" id="hidden_iframe"
+						style="display:none;" onload="if(submitted)
+						{window.location='http://thinkdifferently.digital';}"></iframe>
+						<form action="https://docs.google.com/forms/d/1MjOziVbO70cxS4PEgl6_zOitavk3-xP53Rrm3gWcpAU/formResponse?embedded=true" method="post"
+						target="hidden_iframe" onsubmit="submitted=true;">
+
 							<ol role="list" class="ss-question-list" style="padding-left: 0">
 								<div class="ss-form-question errorbox-good" role="listitem">
 									<div dir="ltr" class="ss-item  ss-checkbox">
