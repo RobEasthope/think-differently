@@ -49,16 +49,36 @@
 		}
 	}
 
+	.jfk-button {
+		  padding-top: 26px;
+	}
+
     // Checkboxes
 	@mixin form-checkbox(){
 		display:inline-block;
-        // border:2px solid #BBB;
+        border:5px solid white;
         border-radius:50px;
-        width:3em;
-        height:3em;
+        width:3.25em;
+        height:3.25em;
 		background-size: cover; 
         vertical-align:middle;
         margin:3px;
+        opacity: 0.5;
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+
+	    &:checked + .form-checkbox {
+            
+            opacity: 1;
+            -webkit-filter: grayscale(0%);
+            filter: grayscale(0%)
+        }
+	}
+
+	@mixin form-checkbox-checked(){
+		opacity: 1;
+		-webkit-filter: grayscale(0%);
+		filter: grayscale(0%)
 	}
 
     label.efirst-question {
@@ -71,7 +91,7 @@
 	    }
 
 	    :checked + .form-checkbox {
-            background:$green;
+            @include form-checkbox-checked;
         }
     }
 
@@ -85,7 +105,7 @@
 	    }
 
 	    :checked + .form-checkbox {
-            background:$green;
+            @include form-checkbox-checked;
         }
     }
 
@@ -99,7 +119,7 @@
 	    }
 
 	    :checked + .form-checkbox {
-            background:$green;
+            @include form-checkbox-checked;
         }
     }
 
@@ -113,7 +133,7 @@
 	    }
 
 	    :checked + .form-checkbox {
-            background:$green;
+            @include form-checkbox-checked;
         }
     }
 
@@ -127,7 +147,7 @@
 	    }
 
 	    :checked + .form-checkbox {
-            background:$green;
+            @include form-checkbox-checked;
         }
     }
 
@@ -141,7 +161,7 @@
 	    }
 
 	    :checked + .form-checkbox {
-            background:$green;
+            @include form-checkbox-checked;
         }
     }
 
@@ -155,7 +175,7 @@
 	    }
 
 	    :checked + .form-checkbox {
-            background:$green;
+            @include form-checkbox-checked;
         }
     }
 
