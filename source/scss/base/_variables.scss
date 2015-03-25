@@ -1,12 +1,12 @@
 // Typography
-$base-font-family: $helvetica;
+$base-font-family: "adobe-caslon-pro",serif;;
 $heading-font-family: $base-font-family;
 
 // Font Sizes
-$base-font-size: 1em;
+$base-font-size: 1.25em;
 
 // Line height
-$base-line-height: 1.5;
+$base-line-height: 1.2em;
 $heading-line-height: 1.2;
 
 // Other Sizes
@@ -25,7 +25,7 @@ $verdant-red: #BE1E2D;
 // Font Colors
 $base-background-color: #fff;
 $base-font-color: $dark-gray;
-$action-color: $blue;
+$action-color: $olive;
 
 // Border
 $base-border-color: $light-gray;

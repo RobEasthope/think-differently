@@ -1,15 +1,26 @@
 .voting {
     @include outer-container;
+    overflow: auto;
 
+	.heading-ornament {
+	    display: block;
+	    margin-left: auto;
+	    margin-right: auto;
+	    margin-top: 0px;
+	    margin-bottom: 10px;
 
+	    width: 10em;
+	}
 
     .ss-form-title {
     	text-align: center;
+    	margin-bottom: 0.2em;
     }
 
     .ss-form-entry {
     	border: none;
     	text-align: center;
+    	padding: 1em;
     }
 
     .ss-choice-label {
@@ -19,6 +30,24 @@
     .required-message {
     	display: none;
     }
+
+    .ss-q-title, .ss-form-question, .ss-choices {
+    	display: inline-block;
+    }
+
+    .ss-form-entry {
+    	display: block;
+    	margin: 0 auto;
+    	outline: none;
+    }
+	
+	.ss-form-question {
+		width: 100%;
+
+		@media screen and (min-width: 625px) {
+			width: 49%;
+		}
+	}
 
     // Checkboxes
 	@mixin form-checkbox(){
@@ -136,6 +165,10 @@
       background: transparent; /* WebKit/Blink Browsers */
     }
     ::-moz-selection {
+      background: transparent; /* Gecko Browsers */
+    }
+
+    ::-webkit-selection {
       background: transparent; /* Gecko Browsers */
     }
 }
