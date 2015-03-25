@@ -282,38 +282,38 @@ body {
 
 .reveal .controls div.navigate-left,
 .reveal .controls div.navigate-left.enabled {
-	border-right-color: $red;
+	border-right-color: $olive;
 }
 
 .reveal .controls div.navigate-right,
 .reveal .controls div.navigate-right.enabled {
-	border-left-color: $red;
+	border-left-color: $olive;
 }
 
 .reveal .controls div.navigate-up,
 .reveal .controls div.navigate-up.enabled {
-	border-bottom-color: $red;
+	border-bottom-color: $olive;
 }
 
 .reveal .controls div.navigate-down,
 .reveal .controls div.navigate-down.enabled {
-	border-top-color: $red;
+	border-top-color: $teal;
 }
 
 .reveal .controls div.navigate-left.enabled:hover {
-	border-right-color: $red;
+	border-right-color: $olive;
 }
 
 .reveal .controls div.navigate-right.enabled:hover {
-	border-left-color: $red;
+	border-left-color: $olive;
 }
 
 .reveal .controls div.navigate-up.enabled:hover {
-	border-bottom-color: $red;
+	border-bottom-color: $olive;
 }
 
 .reveal .controls div.navigate-down.enabled:hover {
-	border-top-color: $red;
+	border-top-color: $olive;
 }
 
 
