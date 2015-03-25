@@ -1,0 +1,141 @@
+.voting {
+    @include outer-container;
+
+
+
+    .ss-form-title {
+    	text-align: center;
+    }
+
+    .ss-form-entry {
+    	border: none;
+    	text-align: center;
+    }
+
+    .ss-choice-label {
+    	display: none;
+    }
+
+    .required-message {
+    	display: none;
+    }
+
+    // Checkboxes
+	@mixin form-checkbox(){
+		display:inline-block;
+        // border:2px solid #BBB;
+        border-radius:50px;
+        width:3em;
+        height:3em;
+		background-size: cover; 
+        vertical-align:middle;
+        margin:3px;
+	}
+
+    label.efirst-question {
+		input[type="checkbox"] {display:none;}
+
+    	.form-checkbox {
+	        @include form-checkbox;
+	        background: url('../images/RoundIcons-Free-Set-42.png');
+	        background-size: cover; 
+	    }
+
+	    :checked + .form-checkbox {
+            background:$green;
+        }
+    }
+
+    label.library-question {
+		input[type="checkbox"] {display:none;}
+
+    	.form-checkbox {
+	        @include form-checkbox;
+	        background: url('../images/browser.png');
+	        background-size: cover; 
+	    }
+
+	    :checked + .form-checkbox {
+            background:$green;
+        }
+    }
+
+    label.bundling-question {
+		input[type="checkbox"] {display:none;}
+
+    	.form-checkbox {
+	        @include form-checkbox;
+	        background: url('../images/RoundIcons-Free-Set-05.png');
+	        background-size: cover; 
+	    }
+
+	    :checked + .form-checkbox {
+            background:$green;
+        }
+    }
+
+    label.subscription-question {
+		input[type="checkbox"] {display:none;}
+
+    	.form-checkbox {
+	        @include form-checkbox;
+	        background: url('../images/calendar-mk2.png');
+	        background-size: cover; 
+	    }
+
+	    :checked + .form-checkbox {
+            background:$green;
+        }
+    }
+
+    label.partnerships-question {
+		input[type="checkbox"] {display:none;}
+
+    	.form-checkbox {
+	        @include form-checkbox;
+	        background: url('../images/handshake.png');
+	        background-size: cover; 
+	    }
+
+	    :checked + .form-checkbox {
+            background:$green;
+        }
+    }
+
+    label.audio-question {
+		input[type="checkbox"] {display:none;}
+
+    	.form-checkbox {
+	        @include form-checkbox;
+	        background: url('../images/headphones.png');
+	        background-size: cover; 
+	    }
+
+	    :checked + .form-checkbox {
+            background:$green;
+        }
+    }
+
+    label.responsive-question {
+		input[type="checkbox"] {display:none;}
+
+    	.form-checkbox {
+	        @include form-checkbox;
+	        background: url('../images/RoundIcons-Free-Set-43.png');
+	        background-size: cover; 
+	    }
+
+	    :checked + .form-checkbox {
+            background:$green;
+        }
+    }
+
+	
+	// Transparent highlighting
+    ::selection {
+      background: transparent; /* WebKit/Blink Browsers */
+    }
+    ::-moz-selection {
+      background: transparent; /* Gecko Browsers */
+    }
+}
