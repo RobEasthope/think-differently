@@ -1,0 +1,106 @@
+// Default mixins and settings -----------------
+@import "reveal-theme/mixins";
+@import "reveal-theme/default-reveal-settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+// @import url(../../lib/font/source-sans-pro/source-sans-pro.css);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$mainColor: #222;
+$headingColor: #222;
+
+$mainFontSize: 38px;
+$mainFont: "adobe-caslon-pro",serif;
+$headingFont: "adobe-caslon-pro",serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 400;
+$linkColor: #2a76dd;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-dark-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #fff;
+	}
+}
+
+
+// Theme template ------------------------------
+@import "reveal-theme/theme";
+// ---------------------------------------------
+
+.reveal {
+    .dragons-den-wrap {
+        border: 0.1em solid white;
+        background-color: rgba(0,0,0,0.6);
+    }
+
+    .dragons-den-type {
+        font-family: "masonregular", "adobe-caslon-pro",serif;
+        font-size: 2.1em;
+        font-style: normal;
+        color: white;
+    }
+
+    .dragons-den-url {
+        font-family: "franklin-gothic-urw", sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        color: white;
+    }
+
+    .slide-title {
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        text-align: left;
+        font-style: normal;
+    }
+
+    .idea-icon {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+
+        height: 3em;
+    }
+
+    .heading-ornament {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0px;
+
+        width: 7em;
+    }
+
+    .centre {
+    	text-align: center;
+    }
+
+    .presenter {
+    	margin-top: 1em;
+    }
+
+    .timeline{
+
+    	.timeline-date {
+    		display: inline-block;
+    		width: 13%;
+    	}
+    	.timeline-event {}
+    }
+}
