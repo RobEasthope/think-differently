@@ -4,6 +4,10 @@
     -webkit-overflow-scrolling: touch;
     text-align: center;
 
+    position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+
     .ss-form-container {
         overflow: auto;
         -webkit-overflow-scrolling: touch;
