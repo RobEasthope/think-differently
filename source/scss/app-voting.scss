@@ -1,7 +1,13 @@
 .voting {
     @include outer-container;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     text-align: center;
+
+    .ss-form-container {
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
 
     .thankyou-wrap {
     	margin: 10px;
