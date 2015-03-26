@@ -128,4 +128,27 @@ section.has-dark-background {
     .blink-logo {
         height: 2em;
     }
+
+    .instructions {
+
+    }
+
+    .instructions-text {
+        display: inline-block;
+        width: 48%;
+
+        vertical-align: top;
+    }
+
+    .instructions-graphic {
+        display: inline-block;
+        width: 48%;
+
+        img {
+            width: 70%;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+    }
 }
