@@ -151,4 +151,24 @@ section.has-dark-background {
             text-align: center;
         }
     }
+
+    .blinkbox {
+        display: inline-block;
+        width: 48%;
+        text-align: center;
+        img {
+            height: 2.5em;
+        }
+    }
+
+    .bardowl {
+        display: inline-block;
+        width: 48%;
+        text-align: center;
+
+        img {
+            // width: 100%;
+            height: 2.5em;
+        }
+    }
 }
