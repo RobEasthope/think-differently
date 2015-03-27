@@ -11,12 +11,14 @@
     "gulp-awspublish": "~1.0.6",
     "gulp-batch": "^1.0.5",
     "gulp-cache": "^0.2.2",
+    "gulp-concat": "~2.5.2",
     "gulp-csso": "^0.2.6",
     "gulp-if": "^1.2.1",
     "gulp-imagemin": "^2.0.0",
     "gulp-jshint": "^1.5.3",
     "gulp-load-plugins": "^0.8.0",
     "gulp-minify-html": "^0.1.6",
+    "gulp-notify": "~2.2.0",
     "gulp-postcss": "^3.0.0",
     "gulp-rename": "^1.2.0",
     "gulp-s3": "^0.3.0",
@@ -30,9 +32,5 @@
     "main-bower-files": "^2.5.0",
     "opn": "^1.0.0",
     "wiredep": "^2.0.0"
-  },
-  "dependencies": {
-    "gulp-concat": "~2.5.2",
-    "gulp-notify": "~2.2.0"
   }
 }
